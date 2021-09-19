@@ -1,23 +1,37 @@
 import './App.css';
+import React, { Component } from 'react';
+import { Post } from '../Post/Post'; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+class App extends Component {
+  constructor() {
+    super(); 
+    this.state = {
+      posts: [],
+      favorites: this.getFromLocal() || [],
+      error: '',
+    }
+  }
+
+  // ---- saving favorites to local ----
+  saveToLocal = () => {
+    const toStore = JSON.stringify(this.state.favorites)
+    localStorage.setItem('savedPhotos', toStore)
+  }
+
+  getFromLocal = () => {
+    const getStore = localStorage.getItem('savedPhotos')
+    const parsedStore = JSON.parse(getStore); 
+    return parsedStore; 
+  }
+
+  render() {
+    return (
+      <header>
+       <h1>SPACESTAGRAM</h1>
       </header>
-    </div>
-  );
+    )
+  }
+
 }
 
 export default App;
