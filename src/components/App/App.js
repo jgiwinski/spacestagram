@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { Post } from '../Post/Post'; 
+import { getData } from '../../utilities'; 
 
 class App extends Component {
   constructor() {
@@ -10,6 +11,24 @@ class App extends Component {
       favorites: this.getFromLocal() || [],
       error: '',
     }
+  }
+
+  componentDidMount() {
+    getData()
+      .then(response => this.setState({posts: response}))
+      .catch(error => this.setState({error: error}))
+  }
+
+  displayContent = () => {
+    return this.state.posts.map(post => {
+      return <Post 
+        id={post.date}
+        date={post.date}
+        image={post.url}
+        title={post.title}
+        desc={post.explanation} 
+      />
+    })
   }
 
   // ---- saving favorites to local ----
@@ -26,9 +45,14 @@ class App extends Component {
 
   render() {
     return (
-      <header>
-       <h1>SPACESTAGRAM</h1>
-      </header>
+      <>
+        <header>
+        <h1>SPACESTAGRAM</h1>
+        </header>
+        <main>
+          {this.displayContent()}
+        </main>
+      </>
     )
   }
 
