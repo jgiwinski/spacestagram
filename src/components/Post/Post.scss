@@ -1,1 +1,26 @@
 @import '../../index.scss'; 
+
+article {
+    @include centerColumn; 
+    width: 50%;
+    background: linear-gradient(to bottom, $lightBlue 0%, #FFFFFF 55%, #FFFFFF 100%);
+    margin: 30px; 
+    padding: 30px; 
+    border-radius: 10px;
+}
+
+.apod {
+    width: 90%; 
+    height: 400px; 
+    object-fit: cover;
+    border: solid 5px $white;
+}
+
+.title-date {
+    @include flexRow(space-between, baseline);
+    padding: 30px;
+}
+
+h2 {
+    width: 50%;
+}
