@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React, { Component } from 'react';
 import { Post } from '../Post/Post'; 
 import { getData } from '../../utilities'; 
@@ -64,7 +64,9 @@ class App extends Component {
     return (
       <>
         <header>
-        <h1>SPACESTAGRAM</h1>
+          <div className='page-title'>
+            <h1>SPACESTAGRAM</h1>
+          </div>
         </header>
         <main>
           {this.displayContent()}
