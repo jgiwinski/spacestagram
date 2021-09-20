@@ -1,5 +1,6 @@
 import './Post.scss'; 
 import React from 'react';
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 export const Post = ({ id, title, date, image, desc, likeUnlikePhoto}) => {
 
@@ -13,12 +14,19 @@ export const Post = ({ id, title, date, image, desc, likeUnlikePhoto}) => {
     return (
         <article>
             <img className='apod' src={image} alt={title}/>
+            <h2>{title}</h2>
+            <p>{desc}</p>
             <div className='title-date'>
-                <h2>{title}</h2>
+                <FaHeart />
+                <FaRegHeart />
+                <button id={id} onClick={e => likeUnlikePhoto(e)}>LIKE</button>
                 <h3>{formatDate(slashDate)}</h3>
             </div>
-            <p>{desc}</p>
-            <button id={id} onClick={e => likeUnlikePhoto(e)}>LIKE</button>
         </article>
     )
 }
+
+// {isLiked&& <AiFillHeart size='30' onClick={() => userInput()}>
+
+
+// {!isLiked && <AiOutlineHeart className='outlineHeart' data-cy='outlineHeart' size='25' onClick={() => userInput()}></AiOutlineHeart>}

@@ -1,28 +1,22 @@
 import './App.scss';
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Post } from '../Post/Post'; 
 import { getData } from '../../utilities'; 
 
-class App extends Component {
-  constructor() {
-    super(); 
-    this.state = {
-      posts: [],
-      liked: [],
-      error: '',
-    }
-  }
+  export const App = () => {
 
-  // this.getFromLocal() ||
+    const [posts, setPosts] = useState([])
+    const [liked, setLiked] = useState([])
+    const [error, setError] = useState('')
 
-  componentDidMount() {
-    getData()
-      .then(response => this.setState({posts: response}))
-      .catch(error => this.setState({error: error}))
-  }
+    useEffect(() => {
+      getData()
+      .then(response => setPosts(response))
+      .catch(error => setError(error))
+    },[])
   
-  displayContent = () => {
-    return this.state.posts.map((post, i) => {
+  const displayContent = () => {
+    return posts.map((post, i) => {
       return <Post 
         key={i}
         id={post.title}
@@ -30,24 +24,23 @@ class App extends Component {
         image={post.url}
         title={post.title}
         desc={post.explanation} 
-        likeUnlikePhoto={this.likeUnlikePhoto}
+        likeUnlikePhoto={likeUnlikePhoto}
       />
     })
   }
   
-  // ---- saving favorites to local ----
-  saveToLocal = () => {
+  const saveToLocal = () => {
     const toStore = JSON.stringify(this.state.liked)
     localStorage.setItem('likedPhotos', toStore)
   }
   
-  getFromLocal = () => {
+  const getFromLocal = () => {
     const getStore = localStorage.getItem('likedPhotos')
     const parsedStore = JSON.parse(getStore); 
     return parsedStore; 
   }
   
-  likeUnlikePhoto = async (e) => {
+  const likeUnlikePhoto = async (e) => {
     e.preventDefault() 
     if(!this.state.liked.includes(e.target.id)){
        await this.setState({ liked: [...this.state.liked, e.target.id] });
@@ -60,7 +53,6 @@ class App extends Component {
     }
   }
 
-  render() {
     return (
       <>
         <header>
@@ -69,12 +61,8 @@ class App extends Component {
           </div>
         </header>
         <main>
-          {this.displayContent()}
+          {displayContent()}
         </main>
       </>
     )
-  }
-
 }
-
-export default App;
