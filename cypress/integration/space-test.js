@@ -21,6 +21,13 @@ describe('Spacestagram', () => {
             .get('svg').should('have.class', 'heart').should('exist')
             .get('[data-cy=like]').first().click()
     });
+
+    it('should show a 404 error page if the user navigates to an undefined page', () => {
+        cy.visit('http://localhost:3000/mars')
+        cy.contains('return to the home page')
+        cy.get('.lost-error').click()
+        cy.url('eq', 'http://localhost:3000/')
+    });
 })
 
 // I would have liked to get further along with testing and figured out why my fixture isn't catching. 
