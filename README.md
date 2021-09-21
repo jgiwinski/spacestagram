@@ -56,13 +56,13 @@ Spacestagram is a single page app created for the Shopify Winter Internship proo
 
 ## Functionality
 When the user visits the app they will be greeted with a pre-populated page of 10 images from NASA's Astronomy Photo of the Day API. As the user scrolls through the page they will notice they have the ability to like and unlike any photo they choose. 
-![home](https://github.com/jgiwinski/spacestagram/blob/master/assets/home.gif)
+<img src="https://github.com/jgiwinski/spacestagram/blob/master/assets/home.gif" alt="home gif" width="600"/>
 
 The app is resposive and can be comfortably viewed on mobile, tablet, and desktop. 
-![mobile](https://github.com/jgiwinski/spacestagram/blob/master/assets/mobile.gif)
+<img src="https://github.com/jgiwinski/spacestagram/blob/master/assets/mobile.gif" alt="mobile gif" width="600"/>
 
 Spacestagram passes Lighthouse testing with 100% and does not trigger any errors during a WAVE test. 
-![accessibility](https://github.com/jgiwinski/spacestagram/blob/master/assets/accessibility.png)
+<img src="https://github.com/jgiwinski/spacestagram/blob/master/assets/accessibility.png" alt="accesibility" width="600"/>
 
 ### Future Iterations / Improvements 
 - Get local stroage functionality working properly so that a user can leave or refresh the page and their likes persist. 
