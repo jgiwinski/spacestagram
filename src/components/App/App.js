@@ -62,7 +62,7 @@ import { getData } from '../../utilities';
             <h1>SPACESTAGRAM</h1>
           </div>
         </header>
-        <main>
+        <main data-cy='main-content'>
           {displayContent()}
         </main>
       </>
