@@ -1,8 +1,9 @@
 import './Post.scss'; 
-import React from 'react';
+import React, { useState} from 'react';
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 export const Post = ({ id, title, date, image, desc, likeUnlikePhoto, liked}) => {
+    const [isLiked, setIsLiked] = useState(false);
 
     const slashDate = date.replaceAll('-', '/')
     const formatDate = inputDate => {
@@ -11,6 +12,13 @@ export const Post = ({ id, title, date, image, desc, likeUnlikePhoto, liked}) =>
         return monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear() ;
     }
     
+    const changeHeart = () => {
+        if (isLiked) {
+            setIsLiked(false);
+          } else {
+            setIsLiked(true);
+          }
+    }
 
     return (
         <article>
@@ -18,8 +26,8 @@ export const Post = ({ id, title, date, image, desc, likeUnlikePhoto, liked}) =>
             <h2>{title}</h2>
             <p>{desc}</p>
             <div className='title-date'>
-                {liked.includes(title)&&<FaHeart id={id} onClick={e => likeUnlikePhoto(e)}/>}
-                {!liked.includes(title)&&<FaRegHeart id={id}onClick={e => likeUnlikePhoto(e)}/>}
+            {isLiked&& <FaHeart className='heart' size='40' onClick={() => changeHeart()}/>}
+            {!isLiked && <FaRegHeart className='heart' size='40' onClick={() => changeHeart()}/>}
                 <h3>{formatDate(slashDate)}</h3>
             </div>
         </article>

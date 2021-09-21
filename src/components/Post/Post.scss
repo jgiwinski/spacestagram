@@ -30,3 +30,12 @@ h2 {
 p {
     padding: 30px; 
 }
+
+.heart {
+    margin-left: 30px; 
+    &:hover {
+        cursor: pointer; 
+        transform-origin: center;
+        transform: scale(1.1);
+    }
+}
