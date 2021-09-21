@@ -26,3 +26,32 @@ header, main {
 h1 {
     font-size: 3em;
 }
+
+@media screen and (max-width: 1500px) {
+    
+ .page-title {
+     width: 75%;
+ }
+
+}
+
+@media screen and (max-width: 700px) {
+    
+    header {
+        padding-bottom: 0; 
+    }
+
+    main {
+        padding-top: 15px; 
+    }
+
+    .page-title {
+        width: 90%;
+        padding: 9px 30px;
+        height: 30px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}

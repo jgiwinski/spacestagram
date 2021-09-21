@@ -24,7 +24,7 @@ export const Post = ({ id, title, date, image, desc, likeUnlikePhoto, liked}) =>
         <article>
             <img className='apod' src={image} alt={title}/>
             <h2>{title}</h2>
-            <p>{desc}</p>
+            <p className='desc'>{desc}</p>
             <div className='title-date'>
             {isLiked&& <FaHeart className='heart' size='40' onClick={() => changeHeart()}/>}
             {!isLiked && <FaRegHeart className='heart' size='40' onClick={() => changeHeart()}/>}
