@@ -1,0 +1,28 @@
+@import '../../index.scss'; 
+
+$backgroundImg: './space.png'; 
+
+body {
+    background-image: url($backgroundImg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header, main {
+    @include centerColumn; 
+    padding: 40px; 
+}
+
+.page-title {
+    height: 60px; 
+    width: 50%;
+    padding: 30px; 
+    text-align: center;
+    background-color: $lightBlue; 
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 5px black);
+}
+
+h1 {
+    font-size: 3em;
+}

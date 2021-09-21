@@ -1,0 +1,13 @@
+@mixin centerColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexRow($content, $items) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $content;
+    align-items: $items;
+}
