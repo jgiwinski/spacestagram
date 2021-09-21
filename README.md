@@ -11,7 +11,15 @@
 - [Contributors](#contributing)
 
 ## About 
+Spacestagram is a single page app created for the Shopify Winter Internship proogram. This app allows the user to browse through a collection of astronomy photos from one of NASA's APIs. The app has basic like/unlike functionality for each photo.
 
+### Wins/Challenges
+-- CHALLENGES -- 
+* Not enough time. I decided last minute (day or so before the due date - while working on another contract project) to complete this tech challenge and apply for the internship. I applied and made it all the way through to the end for the Fall internship, but ended up not receiving an offer. Wanted to give it another shot. :) 
+* Local Storage functionality. I have the functions all written out, however, something is off and I couldn't get it working properly in time for submission. 
+
+-- WINS --
+* Accomplishing all I did in such a short amount of time. I am proud of what I was able to complete and feel good knowing I did my best work. 
 
 ## Installation
 
@@ -30,7 +38,7 @@
   }
 }</code></pre>
 3. Then run <code>npm run cypress</code>
-4. Select the mars-test.js file
+4. Select the space-test.js file
 5. Cypress will automatically open and the tests will start running. 
 
 ## Technologies Used
@@ -44,8 +52,20 @@
 
 - ![SASS](https://img.shields.io/badge/SASS%20-hotpink.svg?&style=for-the-badge&logo=SASS&logoColor=white)
 
+- ![Cypress](https://img.shields.io/badge/cypress%20-%2317202C.svg?&style=for-the-badge&logo=cypress&logoColor=white)
 
 ## Functionality
+When the user visits the app they will be greeted with a pre-populated page of 10 images from NASA's Astronomy Photo of the Day API. As the user scrolls through the page they will notice they have the ability to like and unlike any photo they choose. 
+![home](https://github.com/jgiwinski/spacestagram/blob/master/assets/home.gif)
+
+The app is resposive and can be comfortably viewed on mobile, tablet, and desktop. 
+![mobile](https://github.com/jgiwinski/spacestagram/blob/master/assets/mobile.gif)
+
+Spacestagram passes Lighthouse testing with 100% and does not trigger any errors during a WAVE test. 
+![accessibility](https://github.com/jgiwinski/spacestagram/blob/master/assets/accessibility.png)
+
+### Future Iterations / Improvements 
+- Get local stroage functionality working properly so that a user can leave or refresh the page and their likes persist. 
 
 ## Contributing
 
