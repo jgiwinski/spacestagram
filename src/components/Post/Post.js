@@ -36,8 +36,8 @@ export const Post = ({ id, title, date, image, desc, likeUnlikePhoto, liked}) =>
             <h2>{title}</h2>
             <p className='desc'>{desc}</p>
             <div className='title-date'>
-            {isLiked&& <FaHeart className='heart' size='40' onClick={() => changeHeart()}/>}
-            {!isLiked && <FaRegHeart className='heart' size='40' onClick={() => changeHeart()}/>}
+            {isLiked&& <FaHeart data-cy='like' className='heart' size='40' onClick={() => changeHeart()}/>}
+            {!isLiked && <FaRegHeart data-cy='unlike' className='heart' size='40' onClick={() => changeHeart()}/>}
                 <h3>{formatDate(slashDate)}</h3>
             </div>
         </article>

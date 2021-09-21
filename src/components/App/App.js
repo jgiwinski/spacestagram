@@ -1,5 +1,6 @@
 import './App.scss';
 import React, { useState, useEffect } from 'react';
+import { Switch, Route, Link } from 'react-router-dom'; 
 import { Post } from '../Post/Post'; 
 import { getData } from '../../utilities'; 
 
@@ -30,6 +31,8 @@ import { getData } from '../../utilities';
     })
   }
   
+  // This save to local/persisting likes functionality does not quite work. I ended up running out of time to get it completely functional. For now I have a simple true/false function that gives the appearance that a user has liked the photo. 
+
   const saveToLocal = () => {
     const toStore = JSON.stringify(liked)
     localStorage.setItem('likedPhotos', toStore)
@@ -55,6 +58,8 @@ import { getData } from '../../utilities';
     }
   }
 
+  // End of save to local functionality ^^^^
+
     return (
       <>
         <header>
@@ -62,9 +67,18 @@ import { getData } from '../../utilities';
             <h1>SPACESTAGRAM</h1>
           </div>
         </header>
-        <main>
-          {displayContent()}
-        </main>
+        <Switch>
+              <Route exact path="/" render={() => { 
+                  return (
+                    error ? 
+                    <h1>Looks like there was an {error} error</h1> :
+                    <main data-cy='main-content'>
+                      {displayContent()}
+                    </main>
+                   ) } }/>
+              <Route render={() => <Link to='/' className='lost-error'><h1> 404: Please click here to return to the home page</h1></Link>}/>
+          </Switch>
       </>
     )
 }
+
