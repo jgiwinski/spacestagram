@@ -1,7 +1,7 @@
 const api_key = process.env.REACT_APP_API_KEY;
 
 export const getData = () => {
-    return fetch(`https://api.nasa.gov/planetary/apod?api_key=${api_key}&count=10`)
+    return fetch(`https://api.nasa.gov/planetary/apod?api_key=${api_key}&count=50`)
       .then(response => {
         if (response.ok) {
           return response.json()
