@@ -25,12 +25,13 @@ import { getData } from '../../utilities';
         title={post.title}
         desc={post.explanation} 
         likeUnlikePhoto={likeUnlikePhoto}
+        liked={liked}
       />
     })
   }
   
   const saveToLocal = () => {
-    const toStore = JSON.stringify(this.state.liked)
+    const toStore = JSON.stringify(liked)
     localStorage.setItem('likedPhotos', toStore)
   }
   
@@ -42,14 +43,15 @@ import { getData } from '../../utilities';
   
   const likeUnlikePhoto = async (e) => {
     e.preventDefault() 
-    if(!this.state.liked.includes(e.target.id)){
-       await this.setState({ liked: [...this.state.liked, e.target.id] });
-       this.saveToLocal();
+    if(!liked.includes(e.target.id)){
+       await setLiked([...liked, e.target.id]);
+       console.log(liked)
+       saveToLocal();
     } else {
-      const updatedLiked = this.state.liked.filter(post => {
+      const updatedLiked = liked.filter(post => {
         return post !== e.target.id
       })
-      this.setState({ liked: updatedLiked })
+      setLiked(updatedLiked)
     }
   }
 
