@@ -1,6 +1,7 @@
 <h1 align="center">Spacestagram</h1>
 
-[Deployed App](https://spacestagram-ji.herokuapp.com/)
+🪐🛸  [Deployed App](https://spacestagram-ji.herokuapp.com/)   🚀🌙
+---------------
 
 ## Table of Contents
 
